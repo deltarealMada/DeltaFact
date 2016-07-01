@@ -33,8 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6">
+      <HintPath>..\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +57,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="f_marchandises.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="f_marchandises.Designer.cs">
+      <DependentUpon>f_marchandises.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="util_fact.cs" />
+    <EmbeddedResource Include="f_marchandises.resx">
+      <DependentUpon>f_marchandises.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +77,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +91,927 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Icones\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowLong_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowLong_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowLong_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowLong_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowShort_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowLong_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_LeftArrowShort_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Minus_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_Plus_Orange_16x16_721.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowLong_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_RightArrowShort_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowLong_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Blue_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Blue_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Green_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Grey_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Grey_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Orange_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_UpArrowShort_Orange_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\138_PushPin_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\138_PushPin_32x32_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\525_DiskDrive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1409_Monitor_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1435_ClipBoard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1446_envelope_stamp_clsd_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1446_envelope_stamp_clsd_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1462_Pencil_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1475_Text Balloon_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1522_stop_watch_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1532_Flag_system_Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1532_Flag_system_Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1532_Flag_system_Purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1532_Flag_system_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1532_Flag_system_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1547_ballpointpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1683_Lightbulb_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1683_Lightbulb_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2608_GoldLock_10x10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2608_GoldLock_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\About.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ActivityReports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Annotation_New.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book_Green_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Book_Journal_48x48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\collab.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Collapsed.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Contact 48 h m.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CriticalError.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DatabaseServer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\df.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\drive.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\element_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\element_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\element_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\element_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\element_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Expanded.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FavoriteStar_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FavoriteStar_FrontFacing_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fax.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fermer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fermquit.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Firewall.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FloppyDisk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderOpen_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FolderOpen_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\genericInternet.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gj.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoLtrHS.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Help.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HelpFile.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id_cards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\infoBubble.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\install.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Journal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\keys.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Keys.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lettrine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail24_h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_dark_first.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_dark_forward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_dark_last.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_dark_pause.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_dark_play.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_dark_rewind.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_dark_stop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_light_first.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_light_forward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_light_last.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_light_pause.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_light_play.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_light_rewind.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media_controls_light_stop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-flash.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-floppy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-playback-pause.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-playback-start.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-playback-stop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-record.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-seek-backward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-seek-forward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-skip-backward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\media-skip-forward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_dropdown.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Network_Center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\networkConnections.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\network-workgroup.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\newFolder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\none.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\office-calendar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\okay.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit_08.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit_10.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit_11.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit_20.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit_21.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit_30.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit_50.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %281%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %282%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %283%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %284%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %286%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %287%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %288%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %289%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2810%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2811%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2812%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2813%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2814%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2815%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2816%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2818%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2819%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2822%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2823%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2824%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2825%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2826%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2827%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2828%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2829%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2830%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2831%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2832%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2833%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2834%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2835%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2836%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2837%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2838%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2840%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\onebit2 %2841%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package-x-generic.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\padlock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDA.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Phone.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences-system.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences-system-windows.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print_preview24_h.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\process-stop.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prop.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\questionBubble.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_backwards.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_forward.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_minus_sign.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove_outline.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save24.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scanner.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_glyph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchDocuments.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchFiles.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchPeople.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchPrinter.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\searchWeb.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\share_overlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sharedFolder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallfail.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smallsuccess.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sprocket_light.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-file-manager.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-log-out.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system-search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text-x-generic.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled %28104%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User group.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User group.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userAccounts.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-trash-full.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view_list_with_thumbnail.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WebServer.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-office-document.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-office-document-template.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XPfolder_closed.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\XPfolder_Open.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\005_Task_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\005_Task_16x16_72_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\005_Task_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\008_Reminder_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\008_Reminder_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\023_Tip_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\023_Tip_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_ArrowCurve_Blue_Left_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_ArrowCurve_Blue_Left_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_ArrowCurve_Blue_Right_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_ArrowCurve_Blue_Right_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowLong_Green_16x16_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\112_DownArrowLong_Green_24x24_72.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
