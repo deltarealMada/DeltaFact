@@ -12,17 +12,25 @@ namespace DeltaFact
         /// <summary>
         /// Point d'entrée principal de l'application.
         /// </summary>
+        
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new f_marchandises());
-            
-        }
-        
+            System.Globalization.CultureInfo aa = new System.Globalization.CultureInfo("fr-FR", true);
+            aa.NumberFormat.NumberGroupSeparator = " ";
+            aa.NumberFormat.NumberDecimalSeparator = ".";
+            aa.NumberFormat.CurrencyGroupSeparator = " ";
+            aa.NumberFormat.CurrencyDecimalSeparator = ".";
+            aa.DateTimeFormat.DateSeparator = ".";
+            aa.DateTimeFormat.ShortDatePattern = "dd.MM.yyyy";
 
+            Application.CurrentCulture = aa;
+            Application.Run(new MainForm());
+        }
+        public static string variableglobale = "lklk";
     }
 
-    
+
 }
